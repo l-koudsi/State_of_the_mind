@@ -20,78 +20,75 @@
  *              - DelayXLCD() provides at least 5ms delay
  */
 
- /* Interface type 8-bit or 4-bit
+/* Interface type 8-bit or 4-bit
   * For 8-bit operation uncomment the #define BIT8
   */
-  /* #define BIT8 */
+/* #define BIT8 */
 
-  /* When in 4-bit interface define if the data is in the upper
+/* When in 4-bit interface define if the data is in the upper
    * or lower nibble.  For lower nibble, comment the #define UPPER
    */
-   /* #define UPPER */
+/* #define UPPER */
 
- #define MyConfig
-
-   /* DATA_PORT defines the port to which the LCD data lines are connected */
-#ifdef MyConfig
-#define DATA_PORT  PORTA
-#define TRIS_DATA_PORT  TRISA
+/* DATA_PORT defines the port to which the LCD data lines are connected */
+#ifdef MY_CONFIG
+#define DATA_PORT PORTA
+#define TRIS_DATA_PORT TRISA
 #else
-#define DATA_PORT      		PORTB
-#define TRIS_DATA_PORT 		TRISB
+#define DATA_PORT PORTB
+#define TRIS_DATA_PORT TRISB
 #endif
 
 /* CTRL_PORT defines the port where the control lines are connected.
  * These are just samples, change to match your application.
  */
-#ifdef MyConfig
-#define RW_PIN  LATAbits.LATA6
-#define TRIS_RW  TRISAbits.TRISA6
+#ifdef MY_CONFIG
+#define RW_PIN LATAbits.LATA6
+#define TRIS_RW TRISAbits.TRISA6
 #else
-#define RW_PIN   LATBbits.LATB6   		/* PORT for RW */
-#define TRIS_RW  TRISBbits.TRISB6    	/* TRIS for RW */
+#define RW_PIN LATBbits.LATB6    /* PORT for RW */
+#define TRIS_RW TRISBbits.TRISB6 /* TRIS for RW */
 #endif
 
-#ifdef MyConfig
-#define RS_PIN  LATAbits.LATA5
-#define TRIS_RS  TRISAbits.TRISA5
+#ifdef MY_CONFIG
+#define RS_PIN LATAbits.LATA5
+#define TRIS_RS TRISAbits.TRISA5
 #else
-#define RS_PIN   LATBbits.LATB5   		/* PORT for RS */
-#define TRIS_RS  TRISBbits.TRISB5    	/* TRIS for RS */
+#define RS_PIN LATBbits.LATB5    /* PORT for RS */
+#define TRIS_RS TRISBbits.TRISB5 /* TRIS for RS */
 #endif
 
-#ifdef MyConfig
-#define E_PIN  LATAbits.LATA4
-#define TRIS_E  TRISAbits.TRISA4
+#ifdef MY_CONFIG
+#define E_PIN LATAbits.LATA4
+#define TRIS_E TRISAbits.TRISA4
 #else
- #define E_PIN    LATBbits.LATB4  		/* PORT for D  */
- #define TRIS_E   TRISBbits.TRISB4    	/* TRIS for E  */
+#define E_PIN LATBbits.LATB4    /* PORT for D  */
+#define TRIS_E TRISBbits.TRISB4 /* TRIS for E  */
 #endif
-
 
 /* Display ON/OFF Control defines */
-#define DON         0b00001111  /* Display on      */
-#define DOFF        0b00001011  /* Display off     */
-#define CURSOR_ON   0b00001111  /* Cursor on       */
-#define CURSOR_OFF  0b00001101  /* Cursor off      */
-#define BLINK_ON    0b00001111  /* Cursor Blink    */
-#define BLINK_OFF   0b00001110  /* Cursor No Blink */
+#define DON 0b00001111        /* Display on      */
+#define DOFF 0b00001011       /* Display off     */
+#define CURSOR_ON 0b00001111  /* Cursor on       */
+#define CURSOR_OFF 0b00001101 /* Cursor off      */
+#define BLINK_ON 0b00001111   /* Cursor Blink    */
+#define BLINK_OFF 0b00001110  /* Cursor No Blink */
 
 /* Cursor or Display Shift defines */
-#define SHIFT_CUR_LEFT    0b00000100  /* Cursor shifts to the left   */
-#define SHIFT_CUR_RIGHT   0b00000101  /* Cursor shifts to the right  */
-#define SHIFT_DISP_LEFT   0b00000110  /* Display shifts to the left  */
-#define SHIFT_DISP_RIGHT  0b00000111  /* Display shifts to the right */
+#define SHIFT_CUR_LEFT 0b00000100   /* Cursor shifts to the left   */
+#define SHIFT_CUR_RIGHT 0b00000101  /* Cursor shifts to the right  */
+#define SHIFT_DISP_LEFT 0b00000110  /* Display shifts to the left  */
+#define SHIFT_DISP_RIGHT 0b00000111 /* Display shifts to the right */
 
 /* Function Set defines */
-#define FOUR_BIT   0b00101100  /* 4-bit Interface               */
-#define EIGHT_BIT  0b00111100  /* 8-bit Interface               */
-#define LINE_5X7   0b00110000  /* 5x7 characters, single line   */
-#define LINE_5X10  0b00110100  /* 5x10 characters               */
-#define LINES_5X7  0b00111000  /* 5x7 characters, multiple line */
+#define FOUR_BIT 0b00101100  /* 4-bit Interface               */
+#define EIGHT_BIT 0b00111100 /* 8-bit Interface               */
+#define LINE_5X7 0b00110000  /* 5x7 characters, single line   */
+#define LINE_5X10 0b00110100 /* 5x10 characters               */
+#define LINES_5X7 0b00111000 /* 5x7 characters, multiple line */
 
 #define PARAM_SCLASS auto
-#define MEM_MODEL far  /* Change this to near for small memory model */
+#define MEM_MODEL far /* Change this to near for small memory model */
 
 /* OpenXLCD
  * Configures I/O pins for external LCD
@@ -138,7 +135,7 @@ void WriteDataXLCD(PARAM_SCLASS char);
  */
 #define putcXLCD WriteDataXLCD
 
- /* putsXLCD
+/* putsXLCD
   * Writes a string of characters to the LCD
   */
 void putsXLCD(PARAM_SCLASS char *);
