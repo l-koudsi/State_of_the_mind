@@ -1,4 +1,4 @@
-# State_of_the_mind
+# State Of The Mind
 [Blog](https:\\virtual-index.com\state-of-the-mind) examples and demos
 
 ## Authors
