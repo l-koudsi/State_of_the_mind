@@ -1,22 +1,18 @@
 
 /*
-	File Name:	ELNC6006_Lab8_19W_LK.c
+	File Name:	First Look at a Microcontroller.c
 	Author:		Lynn Koudsi
-	Date:		Apr 10, 2019
+	Date:		Oct 18, 2019	
 	Modified:	None
-	� Fanshawe College, 2016
 
-	Description:  
+	Description:  Cycle LED's based on pushbutton input
 	
 ***********************************************************************************************/
 
 // Preprocessor ===================================================================
 
 #include "pragmas.h"
-#include <adc.h>
-#include <stdlib.h>
 #include <delays.h>
-#include <stdio.h>
 
 
 // Constants ======================================================================
@@ -48,7 +44,14 @@ char ledCounter = 0;
 
 // Functions ======================================================================
 
-// configPort
+/*** configPort: ******************************************************
+Author:		LKoudsi
+Date:		Oct 18, 2019		
+Modified:	None
+Desc:		Set the I/O pins to inputs and outputs.
+Input: 		None
+Returns:	None
+**********************************************************************************/
 void configPort(void)
 {
 	// potentiometer on port A0
@@ -77,9 +80,10 @@ void configPort(void)
 	LATE = 0x00;
 	TRISE = 0xFF;
 }
+
 /*** set_osc_p18f45k22_4MHz: ******************************************************
 Author:		LKoudsi
-Date:		Mar 27, 2019		
+Date:		Oct 18, 2019		
 Modified:	None
 Desc:		Sets the internal Oscillator of the Pic 18F45K22 to 4MHz.
 Input: 		None
@@ -96,8 +100,8 @@ void set_osc_p18f45k22_4MHz(void)
 }
 
 /*** initializeSystem: ***********************************************************
-Author:		CTalbot
-Date:		14 Sept, 2016
+Author:		LKoudsi
+Date:		Oct 18, 2019	
 Modified:	None
 Desc:		Initalizes the Temperature Logger System.
 Input: 		None
@@ -134,25 +138,25 @@ void main(void)
 					LEDRED = 0;
 					LEDBLUE = 0;
 					LEDGREEN = 0;
-					Delay10KTCYx( 15 );
+					Delay10KTCYx( 15 ); // for debouncing
 					break;
 				case (1):
 					LEDRED = 0;
 					LEDBLUE = 0;
 					LEDGREEN = 1;
-					Delay10KTCYx( 15 );
+					Delay10KTCYx( 15 ); // for debouncing
 					break;
 				case (2):
 					LEDRED = 0;
 					LEDBLUE = 1;
 					LEDGREEN = 0;
-					Delay10KTCYx( 15 );
+					Delay10KTCYx( 15 ); // for debouncing
 					break;
 				case (3):
 					LEDRED = 1;
 					LEDBLUE = 0;
 					LEDGREEN = 0;
-					Delay10KTCYx( 15 );
+					Delay10KTCYx( 15 ); // for debouncing
 					break;
 				default:
 					break;
